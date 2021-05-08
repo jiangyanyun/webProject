@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script charset="UTF-8" src="http://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.10/sensorsdata.min.js"></script>
+<script src="src/abtest.min.js"></script>
+<script>
+var sensors = window['sensorsDataAnalytic201505'];
+sensors.init({
+  server_url: 'http://10.120.195.209:8106/sa?project=jiangyanyun1',
+  heatmap:{scroll_notice_map:'not_collect'},
+  is_track_single_page:true,
+  use_client_time:true,
+  send_type:'beacon'    
+});
+sensors.quick('autoTrack');
+var abtest = sensors.use("SensorsABTest",{
+         url:"http://abtesting.saas.debugbox.sensorsdata.cn/api/v2/abtest/online/results?project-key=1C77D685FC5441F52550B4F5973B340EB693EBB4"
+    });
+abtest.fastFetchABTest({
+    param_name:"source",
+    default_value:"",
+    value_type:"String",
+    callback: function(result){
+        console.log('result',result)
+     // TODO 请根据 result 进行自己的试验，当前试验对照组返回值为：test，试验组依次返回：test2
+    }
+});
+</script>
+</head>
+<body>
+
+<h2>AB</h2>
+</body>
+</html>

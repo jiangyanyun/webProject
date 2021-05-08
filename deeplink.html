@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.1/sensorsdata.min.js"></script>
+    <script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+    server_url: 'http://10.120.195.209:8106/sa?project=jiangyanyun1',
+    is_track_single_page:true,
+    use_client_time:true,
+    });
+    // sensors.use('SensorsChannel');
+    sensors.quick('autoTrack');
+    sensors.quick('useAppPlugin', {
+        deeplink: function(deeplink) {
+        deeplink.init();//执行初始化
+        document.getElementById('theBtn').addEventListener('click', function(e) {　// 监听此按钮的 click 事件
+            e.preventDefault(); // 阻止浏览器默认跳转行为
+            deeplink.openDeepLink(); //尝试唤起 App
+        });
+        }
+    });
+    </script>
+</head>
+<body>
+    <p><a id="theBtn" href='#'>Open the App</a></p>
+</body>
+</html>

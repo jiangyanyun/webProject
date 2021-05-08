@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        .box {
+            display: block;
+            width: 200px;
+            height: 200px;
+            background: cornflowerblue;
+            color: white;
+        }
+        .hiden {
+            width: 100px;
+        }
+    </style>
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.1/sensorsdata.min.js"></script>
+    <script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+    server_url: 'http://10.120.195.209:8106/sa?project=jiangyanyun1',
+    is_track_single_page:true,
+    use_client_time:true,
+    preset_properties:{
+        latest_wx_ad_click_id:true
+    },
+    heatmap:{
+        collect_tags:{
+              div : true
+        },
+        track_attr:['hotter']
+    } 
+    });
+    // sensors.use('SensorsChannel');
+    sensors.quick('autoTrack');
+    </script>
+</head>
+<html>
+    <body id="dd">
+    <div><a href="#">我是A标签</a></div>
+    <div><button>我是按钮</button></div>
+    <div><input type="button" value="我是input"></div>
+    <div class="hiden" data-sensors-click><p>我是设置data-sensors-click的div标签</p></div>
+    <div class="hiden" hotter><p>我是设置track_attr标签的div标签</p></div>
+    <a class="box"><span hotrep>dd</span></a>
+    <div>
+        叶子节点div标签</div>
+        <div></div> <span>div中的span标签</span></div>
+        <div></div> <mark>mark,高亮</mark></div>
+        <div></div> <strong>strong,加粗</strong></div>
+        <div></div> <b>b,加粗</b></div>
+        <div></div> <em>em,斜体</em></div>
+        <div></div> <i>i,斜体</i></div>
+        <div></div> <u>u,下划线</u></div>
+        <div></div> <abbr>abbr,缩略</abbr></div>
+        <div></div> <ins>ins,插入的文本</ins></div>
+        <div></div> <del>del,删除的文本</del></div>
+        <div></div> <s>s,删除的文本</s></div>
+        <div></div> <sup>sup,内容将会以当前文本流中字符高度的一半来显示</sup>
+
+        
+    </div>
+</body>
+</html>
