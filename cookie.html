@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+<body>
+  <h2>我是iframe内嵌页面</h2>
+  <h2>域名：https://jiangyanyun.github.io/ </h2>
+  <div>
+    <h3>设置Cookie</h3> 
+    <p>key: <input type="text" class="key"></p> 
+    <p>value: <input type="text" class="value"></p> 
+    <button id="setCookie">设置cookie</button>
+  </div>
+  <div>
+    <h3>获取Cookie</h3> 
+    <p>cookie：<input type="text" id="cookie_list"></p>
+    <button id="getCookie">设置cookie</button>
+  </div>
+</body>
+
+<script>
+ 
+ document.getElementById('setCookie').addEventListener('click',function(){
+    var key =document.getElementsByClassName('key')[0].value;
+    var value =document.getElementsByClassName('value')[0].value;
+     if(key.length>0 && value.length>0){
+        Cookies.set(key, value);
+     }
+ })
+
+ document.getElementById('getCookie').addEventListener('click',function(){
+    var obj = Cookies.get();
+    document.getElementById('cookie_list').value = JSON.stringify(obj);
+ })
+</script>
+
+
+</html>
