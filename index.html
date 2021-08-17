@@ -18,7 +18,7 @@
             width: 100px;
         }
     </style>
-    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.1/sensorsdata.min.js"></script>
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.16/sensorsdata.min.js"></script>
     <script charset="UTF-8">
     var sensors = window['sensorsDataAnalytic201505'];
     sensors.init({
@@ -28,6 +28,7 @@
     preset_properties:{
         latest_wx_ad_click_id:true
     },
+    send_type:beacon,
     heatmap:{
         collect_tags:{
               div : true
