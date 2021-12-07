@@ -5,28 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.1/sensorsdata.min.js"></script>
-    <script charset="UTF-8">
-    var sensors = window['sensorsDataAnalytic201505'];
-    sensors.init({
-    server_url: 'http://10.120.195.209:8106/sa?project=jiangyanyun1',
-    is_track_single_page:true,
-    use_client_time:true,
-    });
-    // sensors.use('SensorsChannel');
-    sensors.quick('autoTrack');
-    sensors.quick('useAppPlugin', {
-        deeplink: function(deeplink) {
-        deeplink.init();//执行初始化
-        document.getElementById('theBtn').addEventListener('click', function(e) {　// 监听此按钮的 click 事件
-            e.preventDefault(); // 阻止浏览器默认跳转行为
-            deeplink.openDeepLink(); //尝试唤起 App
-        });
+    <style>
+        * {
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
-    });
+        #popup {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #popup img{
+            display: box;
+        }
+        #mask {
+            position:fixed;
+            width:100%;
+            height:100%;
+            top:0.00px;
+            left:0.00px;
+            background-color:rgba(0,0,0,0.6);
+            z-index:999998;
+        }
+    </style>
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.18.16/sensorsdata.min.js"></script>
+    <!-- <script src="./sensorsdata.js"></script> -->
+    <!-- <script src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/vapph5define.full.js"></script> -->
+    <script>
+       var sensors = window['sensorsDataAnalytic201505'];
+       if(typeof sensors === 'undefined'){
+           console.log('sensors load failed');
+       }else {
+        sensors.init({
+                server_url: "http://10.120.195.209:8106/sa?project=jiangyanyun1",
+                is_track_single_page:true, // 单页面配置，默认开启，若页面中有锚点设计，需要将该配置删除，否则触发锚点会多触发 $pageview 事件
+                use_client_time:true, 
+                send_type:'beacon',
+                show_log:true,
+                heatmap: {
+                    //是否开启点击图，default 表示开启，自动采集 $WebClick 事件，可以设置 'not_collect' 表示关闭。
+                    clickmap:'default',
+                    track_attr:['data-event'],
+                    //是否开启触达图，not_collect 表示关闭，不会自动采集 $WebStay 事件，可以设置 'default' 表示开启。
+                    scroll_notice_map:'not_collect'
+                }   
+            });
+       }
+       sensors.quick('autoTrack')
     </script>
 </head>
 <body>
-    <p><a id="theBtn" href='#'>Open the App</a></p>
+    <div ng-repeat="sub in item.List" ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
+        <div class="icon">
+            <img ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+        </div>
+        <span class="menu-font-style ng-binding">通知绑定</span>
+    </div>
+    <div ng-repeat="sub in item.List" ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
+        <div class="icon">
+            <img ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+        </div>
+        <span class="menu-font-style ng-binding">缴费提醒</span>
+    </div>
 </body>
 </html>
+
+<script>
+ document.addEventListener('click',function(e){
+    var target = e.target;
+
+    sensors.track('channelFuncClick',{
+                        page_name: "微生活"
+    })
+    window.location.href = 'https://www.baidu.com';
+ })
+</script>
