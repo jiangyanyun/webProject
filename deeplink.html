@@ -54,15 +54,15 @@
     </script>
 </head>
 <body>
-    <div ng-repeat="sub in item.List" ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
+    <div  ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
         <div class="icon">
-            <img ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+            <img  id="test1" ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
         </div>
         <span class="menu-font-style ng-binding">通知绑定</span>
     </div>
-    <div ng-repeat="sub in item.List" ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
+    <div ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
         <div class="icon">
-            <img ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+            <img  id="test2" ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
         </div>
         <span class="menu-font-style ng-binding">缴费提醒</span>
     </div>
@@ -72,10 +72,15 @@
 <script>
  document.addEventListener('click',function(e){
     var target = e.target;
-
+    console.log(target)
     sensors.track('channelFuncClick',{
                         page_name: "微生活"
     })
-    window.location.href = 'https://www.baidu.com';
+    if(target.id === 'test1'){
+        window.location.href = 'https://www.baidu.com';
+    }else {
+        window.location.href = 'https://upaycs.szrcbank.com/vwtmermgmt/wap/szrcb/merchantBind.html?wechatVersion=1.0.2'
+    }
+   // window.location.href = 'https://www.baidu.com';
  })
 </script>
