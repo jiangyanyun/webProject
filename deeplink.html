@@ -29,7 +29,7 @@
     </style>
     <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.18.16/sensorsdata.min.js"></script>
     <!-- <script src="./sensorsdata.js"></script> -->
-    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/vconsole.min.js"></script>
     <script>
        var sensors = window['sensorsDataAnalytic201505'];
        if(typeof sensors === 'undefined'){
@@ -57,9 +57,9 @@
 <body>
     <div  ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
         <div class="icon">
-            <img  id="test1" ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+            <img  id="test1" data-sensors-click ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
         </div>
-        <span class="menu-font-style ng-binding">通知绑定3</span>
+        <span class="menu-font-style ng-binding">通知绑定4</span>
     </div>
     
 </body>
