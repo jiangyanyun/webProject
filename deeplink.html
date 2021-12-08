@@ -29,7 +29,7 @@
     </style>
     <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.18.16/sensorsdata.min.js"></script>
     <!-- <script src="./sensorsdata.js"></script> -->
-    <!-- <script src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/vapph5define.full.js"></script> -->
+    <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script> -->
     <script>
        var sensors = window['sensorsDataAnalytic201505'];
        if(typeof sensors === 'undefined'){
@@ -51,6 +51,7 @@
             });
        }
        sensors.quick('autoTrack')
+         var vConsole = new window.VConsole();
     </script>
 </head>
 <body>
