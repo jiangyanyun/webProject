@@ -32,9 +32,6 @@
 <!--     <script src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/vconsole.min.js"></script> -->
     <script>
        var sensors = window['sensorsDataAnalytic201505'];
-       if(typeof sensors === 'undefined'){
-           console.log('sensors load failed');
-       }else {
         sensors.init({
                 server_url: "https://jssdkdata.debugbox.sensorsdata.cn/sa?project=jiangyanyun1",
                 is_track_single_page:true, // 单页面配置，默认开启，若页面中有锚点设计，需要将该配置删除，否则触发锚点会多触发 $pageview 事件
@@ -49,20 +46,22 @@
                     scroll_notice_map:'not_collect'
                 }   
             });
-       }
-        console.log('autoTrack')
+       console.log('autoTrack')
        sensors.quick('autoTrack')
         
 //          var vConsole = new window.VConsole();
     </script>
 </head>
 <body>
-    <div  ng-click="jumpPage('https://upaycs.szrcbank.com/at/merchant-h5-wtmerchant/WechatAuthNewUrlEntry/Process.html?state=bind', 'NO','','2','通知绑定','智慧支付')" class="flex-item" data-sensors-click="" name="通知绑定">
+    <div  class="flex-item" data-sensors-click name="通知绑定">
         <div class="icon">
-            <img  id="test1" data-sensors-click ng-src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png" src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
+            <img  id="test1" data-sensors-click  src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
         </div>
         <span class="menu-font-style ng-binding">通知绑定333</span>
     </div>
+    <br>
+    <br>
+    <a href="https://www.zhihu.com/" target="view_frame">跳转 3</a>
     
 </body>
 </html>
@@ -70,7 +69,6 @@
 <script>
  document.addEventListener('click',function(e){
     var target = e.target;
-    console.log(target)
 //     sensors.track('channelFuncClick',{
 //                         page_name: "微生活"
 //     })
