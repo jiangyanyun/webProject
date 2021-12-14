@@ -27,7 +27,7 @@
             z-index:999998;
         }
     </style>
-    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.18.16/sensorsdata.min.js"></script>
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.19.1/sensorsdata.min.js"></script>
     <!-- <script src="./sensorsdata.js"></script> -->
 <!--     <script src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/vconsole.min.js"></script> -->
     <script>
@@ -57,7 +57,7 @@
         <div class="icon">
             <img  id="test1" data-sensors-click  src="http://szrcb.oss-cn-hangzhou.aliyuncs.com/img/noticeBind.png">
         </div>
-        <span class="menu-font-style ng-binding">通知绑定333</span>
+        <a href="https://www.baidu.com">通知绑定333</a>
     </div>
     <br>
     <br>
@@ -67,14 +67,5 @@
 </html>
 
 <script>
- document.addEventListener('click',function(e){
-    var target = e.target;
-//     sensors.track('channelFuncClick',{
-//                         page_name: "微生活"
-//     })
-     if(target.id=="test1"){
-           window.location.href = 'https://www.baidu.com';
-     }
-  
- })
+
 </script>
