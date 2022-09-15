@@ -18,7 +18,7 @@
             width: 100px;
         }
     </style>
-    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.19.11/sensorsdata.min.js"></script>
+    <script charset="UTF-8" src="https://jssdk.debugbox.sensorsdata.cn/js/jyy/src/sensorsdata.1.23.4.js"></script>
     <script charset="UTF-8">
     var sensors = window['sensorsDataAnalytic201505'];
     sensors.init({
@@ -39,6 +39,13 @@
 //     is_secure_cookie:true,    
     });
     // sensors.use('SensorsChannel');
+    sensors.quick('useModulePlugin','SiteLinker',
+    	{linker: [
+      		{part_url: 'sensorsdata.cn', after_hash: false},
+      		{part_url: 'github.io', after_hash: false}
+    	]}
+  	);       
+
     sensors.quick('autoTrack');
     </script>
 </head>
